@@ -12,4 +12,7 @@ sed -i "s/poll_interval: .*/poll_interval: $(bashio::config 'poll_interval')/g" 
 
 echo "Starting Daemon..."
 /usr/bin/python3 /opt/kamstrup/daemon.py &
+mkdir -p /opt/kamstrup/logs
+touch /opt/kamstrup/logs/debug.log
+echo "Tailing log"
 tail -f /opt/kamstrup/logs/debug.log
